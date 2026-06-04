@@ -11,7 +11,6 @@
 
 ![Interview](Screenshots/interview4.png)
 
-![Interview](Screenshots/AI-feedback.png)
 
 ## Aptitude Module
 
