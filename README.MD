@@ -41,6 +41,7 @@ The platform combines multiple preparation activities into a single workspace, a
 ### Dashboard
 
 ![Dashboard](Screenshots/dashboard.png)
+![Login](Screenshots/Login.png)
 
 ### Interview Practice
 
