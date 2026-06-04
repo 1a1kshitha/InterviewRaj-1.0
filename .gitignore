@@ -1,0 +1,9 @@
+.venv/
+node_modules/
+__pycache__/
+.vscode/
+.kiro/
+LivePortrait/
+portfolio/
+.env/
+index.js/

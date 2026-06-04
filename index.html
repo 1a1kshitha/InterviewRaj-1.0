@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewRaj</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- MONACO EDITOR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h1>InterviewRaj</h1>
+
+            <button class="nav-btn" onclick="showPage('dashboard-page', this)">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" onclick="showPage('interview-page', this)">
+                🎤 Interview
+            </button>
+
+            <button class="nav-btn" onclick="showPage('aptitude-page', this)">
+                🧠 Aptitude
+            </button>
+
+            <button class="nav-btn" onclick="showPage('coding-page', this)">
+                💻 Coding
+            </button>
+
+            <button class="logout-btn" onclick="logout()">
+                🚪 Logout
+            </button>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main-content">
+            <section id="login-page" class="page active">
+
+                <div class="card" style="
+    max-width:420px;
+    margin:auto;
+    margin-top:80px;">
+
+                    <h2>🔐 Login</h2>
+
+                    <input type="email" id="email" placeholder="Enter Email" class="input-box">
+
+                    <input type="password" id="password" placeholder="Enter Password" class="input-box">
+
+                    <button class="main-btn" onclick="signup()">
+
+                        Create Account
+
+                    </button>
+
+                    <button class="main-btn" onclick="login()">
+
+                        Login
+
+                    </button>
+
+                </div>
+
+            </section>
+            <!-- DASHBOARD -->
+            <section id="dashboard-page" class="page ">
+
+                <!-- HERO -->
+
+                <div class="card">
+
+                    <h1 style="
+        font-size:42px;
+        margin-bottom:12px;">
+
+                        Good Evening,
+                        <span id="username">User</span> 👋
+
+                    </h1>
+
+                    <p style="
+        color:#cbd5e1;
+        font-size:18px;">
+
+                        Ready to crack your dream company today?
+
+                    </p>
+
+                </div>
+
+                <!-- READINESS -->
+
+                <div class="card">
+
+                    <h2>📊 Placement Readiness</h2>
+
+                    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-top:20px;
+        flex-wrap:wrap;
+        gap:20px;">
+
+                        <div>
+
+                            <h1 id="readiness-score" style="
+                font-size:72px;
+                color:#8b5cf6;">
+
+                                72%
+
+                            </h1>
+
+                            <p style="color:#cbd5e1;">
+                                Overall Placement Readiness
+                            </p>
+
+                        </div>
+
+                        <div style="
+            flex:1;
+            min-width:280px;">
+                            <div class="progress-bar">
+                                <div id="readiness-bar" class="progress-fill"></div>
+                            </div>
+
+
+                            <p style="
+                margin-top:16px;
+                color:#cbd5e1;">
+
+                                ⚠ Improve communication clarity<br><br>
+
+                                ⚠ Practice more coding problems<br><br>
+
+                                ✅ Aptitude improving steadily
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- STATS -->
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-box">
+
+                        <h3>🎤 Interview</h3>
+
+                        <h1 id="interview-score">0%</h1>
+
+                        <p style="margin-top:10px;color:#94a3b8;">
+                            Communication & HR readiness
+                        </p>
+
+                    </div>
+                    <div class="feedback-metrics">
+
+                        <div class="metric-card">
+                            <h3>Confidence</h3>
+                            <h1>7</h1>
+                        </div>
+
+                        <div class="metric-card">
+                            <h3>Communication</h3>
+                            <h1>8</h1>
+                        </div>
+
+                        <div class="metric-card">
+                            <h3>Technical</h3>
+                            <h1>7</h1>
+                        </div>
+
+                        <div class="metric-card">
+                            <h3>Clarity</h3>
+                            <h1>8</h1>
+                        </div>
+
+                    </div>
+
+                    <div class="dashboard-box">
+
+                        <h3>🧠 Aptitude</h3>
+                        <h1 id="dashboard-aptitude-score">0%</h1>
+
+
+                        <p style="margin-top:10px;color:#94a3b8;">
+                            Quantitative performance
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-box">
+
+                        <h3>💻 Coding</h3>
+
+                        <h1 id="coding-score">0%</h1>
+
+                        <p style="margin-top:10px;color:#94a3b8;">
+                            DSA & problem-solving
+                        </p>
+
+                    </div>
+
+                </div>
+                <!-- ANALYTICS -->
+
+                <div class="card">
+
+                    <h2>📈 Performance Analytics</h2>
+
+                    <div class="charts-grid">
+
+                        <div class="chart-box">
+
+                            <h3>Interview Growth</h3>
+
+                            <canvas id="interviewChart"></canvas>
+
+                        </div>
+
+                        <div class="chart-box">
+
+                            <h3>Coding Progress</h3>
+
+                            <canvas id="codingChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- TARGET -->
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-box">
+
+                        <h3>🎯 Current Target</h3>
+
+                        <h1 style="
+            font-size:28px;
+            color:#22c55e;">
+
+                            Amazon
+
+                        </h1>
+
+                        <p style="
+            margin-top:10px;
+            color:#94a3b8;">
+
+                            Software Engineer Role
+
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-box">
+
+                        <h3>🔥 Daily Streak</h3>
+
+                        <h1 style="
+            font-size:28px;
+            color:#f59e0b;">
+
+                            5 Days
+
+                        </h1>
+
+                        <p style="
+            margin-top:10px;
+            color:#94a3b8;">
+
+                            Keep consistency strong
+
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-box">
+
+                        <h3>🚀 AI Recommendation</h3>
+
+                        <p style="
+            margin-top:15px;
+            color:#cbd5e1;
+            line-height:1.8;">
+
+                            Practice medium-level
+                            string problems and
+                            improve confidence
+                            in interview answers.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- INTERVIEW -->
+            <section id="interview-page" class="page" style="display:none;">
+
+                <div class="interview-grid">
+
+                    <!-- LEFT SIDE -->
+
+                    <div class="interview-main">
+
+                        <div class="card">
+
+                            <h2>🎤 AI Interview Practice</h2>
+
+                            <select id="company-select">
+                                <option>Amazon</option>
+                                <option>Google</option>
+                                <option>TCS</option>
+                            </select>
+
+                            <h3 style="margin-top:20px;">
+                                Question
+                            </h3>
+
+                            <p id="question-text" style="
+                margin-top:15px;
+                font-size:18px;
+                line-height:1.8;">
+                            </p>
+
+                            <textarea id="transcript" placeholder="Type or record your answer...">
+                </textarea>
+
+                            <div class="action-row">
+
+                                <button class="main-btn" onclick="startRecording()">
+                                    🎙 Start
+                                </button>
+
+                                <button class="main-btn" onclick="stopRecording()">
+                                    ⏹ Stop
+                                </button>
+
+                                <button class="main-btn" onclick="prevInterviewQuestion()">
+                                    ⬅ Previous
+                                </button>
+
+                                <button class="main-btn" onclick="nextInterviewQuestion()">
+                                    ➡ Next
+                                </button>
+
+                            </div>
+
+                            <button class="main-btn" onclick="getFeedback()">
+                                💡 Get AI Feedback
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+
+                    <div class="interview-side">
+
+                        <div class="recruiter-card">
+
+                            <img id="recruiter-avatar" src="assets/rec.png">
+
+                            <h2 id="recruiter-name">
+                                Amazon Recruiter
+                            </h2>
+
+                            <div class="recruiter-role">
+                                Senior Hiring Manager
+                            </div>
+
+                            <div id="recruiter-status" class="status-pill">
+                                🟢 Listening...
+                            </div>
+
+                            <div class="recruiter-message">
+
+                                <p id="recruiter-question">
+                                    Tell me about yourself
+                                </p>
+
+                            </div>
+                            <div class="confidence-box">
+
+                                <h3>Confidence</h3>
+
+                                <div class="progress">
+
+                                    <div id="confidence-fill" class="progress-fill">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="camera-card">
+
+                            <h3>📹 Camera</h3>
+
+                            <video id="camera" autoplay muted playsinline>
+                            </video>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- FEEDBACK -->
+
+                <div id="feedback-section" style="display:none;">
+
+                    <div class="feedback-score-card">
+
+                        <h2>🎯 Interview Score</h2>
+
+                        <h1 id="ai-score">
+                            0/10
+                        </h1>
+
+                    </div>
+
+                    <div class="feedback-grid">
+
+                        <div class="feedback-card">
+
+                            <h3>✅ Strengths</h3>
+
+                            <ul id="strengths-list">
+
+                            </ul>
+
+                        </div>
+
+                        <div class="feedback-card">
+
+                            <h3>❌ Weaknesses</h3>
+
+                            <ul id="weaknesses-list">
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="improved-answer-card">
+
+                        <h3>
+                            🚀 Improved Answer
+                        </h3>
+
+                        <p id="improved-answer-text">
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!--APTITUDE-->
+
+            <section id="aptitude-page" class="page" style="display:none;">
+
+                <div class="aptitude-layout">
+
+                    <!-- LEFT PANEL -->
+
+                    <div class="aptitude-sidebar">
+
+                        <h2>🧠 Aptitude Practice</h2>
+
+                        <!-- TIMER -->
+
+                        <div class="timer-box">
+
+                            ⏱ <span id="aptitude-timer">
+                                05:00
+                            </span>
+
+                        </div>
+
+                        <!-- STATS -->
+
+                        <div class="aptitude-stats">
+
+                            <div class="stat-box">
+
+                                <h3>Score</h3>
+
+                                <h1 id="aptitude-score">
+                                    0%
+                                </h1>
+
+                            </div>
+
+                            <div class="stat-box">
+
+                                <h3>Questions</h3>
+
+                                <h1 id="question-count">
+                                    1/5
+                                </h1>
+
+                            </div>
+
+                        </div>
+
+                        <!-- TOPICS -->
+
+                        <div class="topic-box">
+
+                            <h3>📚 Topics</h3>
+
+                            <ul>
+
+                                <li>Quantitative Aptitude</li>
+
+                                <li>Logical Reasoning</li>
+
+                                <li>Probability</li>
+
+                                <li>Time & Work</li>
+
+                                <li>Percentages</li>
+
+                            </ul>
+
+                        </div>
+
+                        <!-- QUESTION PALETTE -->
+
+                        <div class="palette-box">
+
+                            <h3>📝 Question Palette</h3>
+
+                            <div class="palette-grid">
+
+                                <button class="palette-btn active">
+                                    1
+                                </button>
+
+                                <button class="palette-btn">
+                                    2
+                                </button>
+
+                                <button class="palette-btn">
+                                    3
+                                </button>
+
+                                <button class="palette-btn">
+                                    4
+                                </button>
+
+                                <button class="palette-btn">
+                                    5
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT PANEL -->
+
+                    <div class="aptitude-main">
+
+                        <div class="question-card">
+
+                            <h2 id="aptitude-question">
+
+                                Loading Question...
+
+                            </h2>
+
+                            <div id="aptitude-options" class="options-grid">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <section id="coding-page" class="page" style="display:none;">
+
+                <div class="coding-layout">
+
+                    <!-- LEFT -->
+
+                    <div class="problem-panel">
+
+                        <h2>💻 Coding Practice</h2>
+
+                        <div class="problem-card">
+
+                            <h3 id="coding-question">
+                                Write logic to reverse a string
+                            </h3>
+
+                            <br>
+
+                            <p>
+                                Given a string, return the reversed version.
+                            </p>
+
+                            <br>
+
+                            <h4>Example:</h4>
+
+                            <pre>
+Input: hello
+Output: olleh
+                </pre>
+
+                            <br>
+
+                            <h4>Constraints</h4>
+
+                            <ul style="
+                margin-top:10px;
+                padding-left:18px;
+                line-height:2;">
+
+                                <li>Length ≤ 1000</li>
+                                <li>Use efficient logic</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT -->
+
+                    <div class="editor-panel">
+
+                        <select id="language-select">
+
+                            <option value="python">Python</option>
+
+                            <option value="java">Java</option>
+
+                            <option value="c++">C++</option>
+
+                        </select>
+
+                        <div id="editor"></div>
+
+                        <div class="editor-buttons">
+
+                            <button class="main-btn" onclick="runCode()">
+
+                                ▶ Run Code
+
+                            </button>
+
+                            <button class="main-btn" onclick="checkCode()">
+
+                                ✅ Submit
+
+                            </button>
+
+                            <button class="main-btn" onclick="nextCodingQuestion()">
+
+                                ➡ Next
+
+                            </button>
+
+                        </div>
+
+                        <div class="output-panel">
+
+                            <h3>⚡ Output</h3>
+
+                            <pre id="coding-result"></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/interview.js"></script>
+    <script src="js/aptitude.js"></script>
+    <script src="js/coding.js"></script>
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
