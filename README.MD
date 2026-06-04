@@ -37,18 +37,18 @@ The platform combines multiple preparation activities into a single workspace, a
 * Learning analytics
 
 ## Screenshots
+## Login
+![Login](Screenshots/Login.png)
 
 ### Dashboard
 
 ![Dashboard](Screenshots/dashboard.png)
-![Login](Screenshots/Login.png)
 
 ### Interview Practice
 
-
-
 ![Interview](Screenshots/interview3.png)
-
+ ## AI feedback
+ 
 ![Interview](Screenshots/interview4.png)
 
 
