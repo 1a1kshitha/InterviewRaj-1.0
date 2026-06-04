@@ -8,10 +8,14 @@
 ## AI Interview Module
 
 ![Interview](Screenshots/interview1.png)
-(Screenshots/interview2.png)
-(Screenshots/interview3.png)
-(Screenshots/interview4.png)
-(Screenshots/AI feedback.png)
+
+![Interview](Screenshots/interview2.png)
+
+![Interview](Screenshots/interview3.png)
+
+![Interview](Screenshots/interview4.png)
+
+![Interview](Screenshots/AI feedback.png)
 ## Aptitude Module
 
 ![Aptitude](Screenshots/aptitude.png)
