@@ -36,41 +36,7 @@ The platform combines multiple preparation activities into a single workspace, a
 * Coding performance summary
 * Learning analytics
 
-## Screenshots
-## Login
-![Login](Screenshots/Login.png)
 
-### Dashboard
-
-![Dashboard](Screenshots/dashboard.png)
-
-### Interview Practice
-
-![Interview](Screenshots/interview3.png)
- ## AI feedback
- 
-![Interview](Screenshots/interview4.png)
-
-
-### Aptitude Practice
-
-![Aptitude](Screenshots/aptitude.png)
-
-### Coding Practice
-
-![Coding](Screenshots/coding.png)
-
-## Technologies Used
-
-* HTML
-* CSS
-* JavaScript
-* Python
-* FastAPI
-* Ollama
-* TinyLlama
-* Chart.js
-* Monaco Editor
 
 ## Project Goals
 
